@@ -1,21 +1,26 @@
 <script setup>
 import { RouterLink } from 'vue-router';
 import IconDashboard from './icons/IconDashboard.vue';
+import IconTasks from './icons/IconTasks.vue';
+import IconEmail from './icons/IconEmail.vue';
+import IconContact from './icons/IconContact.vue';
+import IconChat from './icons/IconChat.vue';
+import IconDeals from './icons/IconDeals.vue';
 
 const menuLinks = [
   { to: '/', icon: IconDashboard, text: 'Dashboard' },
-  { to: '/tasks', icon: IconDashboard, text: 'Tasks' },
-  { to: '/email', icon: IconDashboard, text: 'Email' },
-  { to: '/contacts', icon: IconDashboard, text: 'Contacts' },
-  { to: '/chat', icon: IconDashboard, text: 'Chat' },
-  { to: '/deals', icon: IconDashboard, text: 'Deals' },
+  { to: '/tasks', icon: IconTasks, text: 'Tasks' },
+  { to: '/email', icon: IconEmail, text: 'Email' },
+  { to: '/contacts', icon: IconContact, text: 'Contacts' },
+  { to: '/chat', icon: IconChat, text: 'Chat' },
+  { to: '/deals', icon: IconDeals, text: 'Deals' },
 ];
 </script>
 
 <template>
   <aside class="font-medium shadow-[6px_0_18px_0_rgba(0,0,0,0.06)]">
-    <div class="p-6 block border-b">
-      <RouterLink to="/" class="inline-block">
+    <div class="px-6 h-[60px] flex items-center border-b">
+      <RouterLink to="/">
         <img src="./logo.svg" />
       </RouterLink>
     </div>
@@ -41,10 +46,11 @@ const menuLinks = [
           class="flex items-center group text-blue-900"
           active-class="text-blue-400"
         >
-          <IconDashboard
+          <component
+            :is="link.icon"
             class="mr-4"
             :class="isActive ? 'text-blue-400' : 'text-grey-300'"
-          />
+          ></component>
           {{ link.text }}
         </RouterLink>
       </div>

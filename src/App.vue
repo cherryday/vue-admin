@@ -1,9 +1,18 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router';
+import { RouterView } from 'vue-router';
 import MainSidebar from './components/MainSidebar.vue';
+import MainHeader from './components/MainHeader.vue';
 </script>
 
 <template>
-  <MainSidebar></MainSidebar>
-  <RouterView />
+  <div>
+    <div class="flex">
+      <MainSidebar></MainSidebar>
+      <MainHeader />
+    </div>
+
+    <main>
+      <RouterView />
+    </main>
+  </div>
 </template>
