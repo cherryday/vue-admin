@@ -1,5 +1,5 @@
 <script setup>
-import IconCheck from './icons/IconCheck.vue';
+import IconCheck from '../icons/IconCheck.vue';
 
 const props = defineProps({
   modelValue: {
